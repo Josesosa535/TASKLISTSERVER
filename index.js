@@ -1,6 +1,7 @@
 // servidor Express
 
 const express = require("express");
+const validateMethod = require("./validateMethod");
 const listTasks = require("./list-view-router");
 const listEdit = require("./list-edit-router");
 
@@ -9,6 +10,7 @@ const port = 3000;
 const host = "localhost";
 
 app.use(express.json());
+app.use(validateMethod);
 
 app.use("/tasks", [listTasks, listEdit]);
 
